@@ -1,26 +1,26 @@
 import React from 'react';
-import HelloStateless from './HelloStateless';
-import HelloStateful from './HelloStateful';
-import HelloForm from './HelloForm';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import './App.css';
 
-class App extends React.Component {
-    exibirAlerta(texto) {
-        alert('[App.js] ' + texto)
-    }
+import Home from './Home';
+import List from './List';
 
-    render() {
-        return (
-            <div className="App">
-                <h1 className="meu-app">Meu App</h1>
-                <HelloStateless nome="Jéssica"></HelloStateless>
-                <HelloStateful nome="Jéssica"></HelloStateful>
-                <HelloStateful nome="Joao"></HelloStateful>
-                <HelloForm exibeAlerta={this.exibirAlerta}></HelloForm>
-            </div>
-        );
-    }
+class App extends React.Component {
+  render() {
+      return (
+          <BrowserRouter>
+              <div className="App">
+                  <h1 className="meu-app">Meu App</h1>
+
+                  <Link to="/">Início</Link> | <Link to="/lista">Lista</Link>
+
+                  <Route path="/" exact component={Home}></Route>
+                  <Route path="/lista" component={List}></Route>
+              </div>
+          </BrowserRouter>
+      );
+  }
 }
 
 export default App;
