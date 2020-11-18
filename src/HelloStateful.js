@@ -5,6 +5,10 @@ class HelloStateful extends React.Component {
         clicou: 'ainda não clicou'
     }
 
+    componentDidMount() {
+        console.log('[HelloStateful] Apareceu na tela');
+    }
+
     handleClick() {
         this.setState({
             clicou: 'clicou'
