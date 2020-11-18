@@ -12,7 +12,7 @@ class HelloForm extends React.Component {
     }
 
     handleClick() {
-        alert(this.state.texto);
+        this.props.exibeAlerta(this.state.texto);
     }
 
     render() {

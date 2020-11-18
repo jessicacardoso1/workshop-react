@@ -3,17 +3,24 @@ import HelloStateless from './HelloStateless';
 import HelloStateful from './HelloStateful';
 import HelloForm from './HelloForm';
 
+import './App.css';
 
-function App() {
-  return (
-    <div>
-        <HelloStateless nome="Jéssica"></HelloStateless>
-        <HelloStateful nome="seu nome"></HelloStateful>
-        <HelloStateful nome="seu nome"></HelloStateful>
-        <HelloForm></HelloForm>
+class App extends React.Component {
+    exibirAlerta(texto) {
+        alert('[App.js] ' + texto)
+    }
 
-    </div>
-  );
+    render() {
+        return (
+            <div className="App">
+                <h1 className="meu-app">Meu App</h1>
+                <HelloStateless nome="Jéssica"></HelloStateless>
+                <HelloStateful nome="Jéssica"></HelloStateful>
+                <HelloStateful nome="Joao"></HelloStateful>
+                <HelloForm exibeAlerta={this.exibirAlerta}></HelloForm>
+            </div>
+        );
+    }
 }
 
 export default App;
